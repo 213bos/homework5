@@ -54,29 +54,39 @@ footer{
 Keyframes for animation*/
 
 @-webkit-keyframes logo_wiggle{
-
+  from {width: 25px;}
+  to {width: 420px;}
 }
 
 @keyframes logo_wiggle{
-
-} 
+  from {width: 25px;}
+  to {width: 420px;}
+}
 
 #logo{
-  
+  animation-iteration-count: 1;
+  animation: logo_wiggle;
+  animation-duration: 3s;
 }
 
 /* Cards! */
 .pricing{
     min-height: 500px;
-  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
-  
   margin: 12px;
   background: #fff;
   border-radius: 7px;
   padding: 0 0 50px 0;
+  width: 400px;
+  flex-basis: 400px;
+  /*align-items: center;*/
 }
 
 .card > header{
@@ -121,8 +131,11 @@ Keyframes for animation*/
 /* Gallery! */
 
 .gallery{
-  
-  min-height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 350px; /*changed this from 600px to 350px to eliminate space between gallery title and gallery photos*/
+  justify-content: center;
+  align-items: center;
 }
 
 .gallery > img{
@@ -133,14 +146,19 @@ Keyframes for animation*/
 
 /* Navbar */
 header{
-  
   background: #fff;
   border-bottom: 3px solid #50C7C7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .nav_links{
- 
+  display: flex;
+  flex-direction: column;
   list-style: none;
+  text-align: center;
 }
 
 .nav_item a{
@@ -156,11 +174,16 @@ header{
 }
 
 @media screen and (min-width: 850px){
-
   /* Cards! */
   .card {
-    
+    flex-basis: 235px;
+    flex-direction: row;
   }
+
+  /*.pricing{
+    display: flex;
+    flex-direction: row;
+  }*/
 
   .card_big{
     -webkit-transform: scaleX(1.12);
@@ -168,13 +191,17 @@ header{
   }
 
   /* Navbar */
-
   header{
-    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 
   .nav_links{
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .nav_item a{
@@ -182,10 +209,34 @@ header{
   }
 }
 
-@media print { 
-  
-  .card {
-    flex-basis: 200px;
+@media screen and (prefers-reduced-motion: reduce) {
+
+  #logo{
+    animation: none;
+  }
+}
+
+@media print {
+  body{
+    background: transparent;
   }
 
+  .gallery{
+    display: none;
+  }
+
+  #gallery{
+    display: none;
+  }
+
+  .pricing{
+    align-items: flex-start;
+    /*flex-direction: row;*/
+  }
+
+  .card{
+    flex-basis: 200px;
+  }
 }
+
+/*reduce motion????*/
