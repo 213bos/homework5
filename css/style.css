@@ -133,7 +133,7 @@ Keyframes for animation*/
 .gallery{
   display: flex;
   flex-wrap: wrap;
-  min-height: 350px; /*changed this from 600px to 350px to eliminate space between gallery title and gallery photos*/
+  min-height: 600px; /*changed this from 600px to 350px to eliminate space between gallery title and gallery photos*/
   justify-content: center;
   align-items: center;
 }
@@ -176,7 +176,7 @@ header{
 @media screen and (min-width: 850px){
   /* Cards! */
   .card {
-    flex-basis: 235px;
+    flex-basis: 250px;
     flex-direction: row;
   }
 
